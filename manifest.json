@@ -2,5 +2,13 @@
   "manifest_version": 3,
   "name": "YouTube Music Volume Slider",
   "version": "1.0",
-  "description": "Modifies the YouTube Music volume slider for easier volume changes."
+  "description": "Modifies the YouTube Music volume slider for easier volume changes.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ]
 }
