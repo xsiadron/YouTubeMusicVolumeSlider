@@ -39,6 +39,7 @@ function updateSliderTextValue() {
             let p = document.createElement("p");
             p.id = "custom-volume-value-data";
             p.style.width = "30px"
+            p.style.fontWeight = "bolder"
             p.innerHTML = currentValue;
             volumeSlider.appendChild(p);
         } else {
