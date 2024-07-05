@@ -95,10 +95,7 @@ function addEventListeners() {
 
 modifyVolumeSlider();
 addEventListeners();
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateSliderTextValue();
-});
+updateSliderTextValue();
 
 const observer = new MutationObserver((mutations, obs) => {
     addEventListeners();
