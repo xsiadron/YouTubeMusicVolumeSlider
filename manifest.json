@@ -11,11 +11,6 @@
       "128": "icon.png"
     }
   },
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "tabs"
-  ],
   "content_scripts": [
     {
       "matches": [
