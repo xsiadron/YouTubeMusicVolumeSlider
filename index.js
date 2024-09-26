@@ -156,11 +156,16 @@ function modifyExpand() {
 }
 
 function applyExpandStyles() {
-  if (window.innerWidth <= 935) {
-    const elements = document.querySelectorAll(
-      ".thumbnail-image-wrapper.ytmusic-player-bar, .image.ytmusic-player-bar, .time-info.ytmusic-player-bar, .thumbs.ytmusic-player-bar"
-    );
+  const elements = document.querySelectorAll(
+    ".thumbnail-image-wrapper.ytmusic-player-bar, .image.ytmusic-player-bar, .time-info.ytmusic-player-bar, .thumbs.ytmusic-player-bar"
+  );
 
+  const imageElements = document.querySelectorAll(".image.ytmusic-player-bar");
+  const thumbsElements = document.querySelectorAll(
+    ".thumbs.ytmusic-player-bar"
+  );
+
+  if (window.innerWidth <= 935) {
     elements.forEach((element) => {
       element.style.position = "absolute";
       element.style.marginBottom = "100px";
@@ -170,13 +175,17 @@ function applyExpandStyles() {
       element.style.left = "0";
     });
 
-    elements[2].style.width = "52px";
-    elements[2].style.height = "52px";
-    elements[2].style.padding = "";
-    elements[2].style.transform = "translate(0px, -18px)";
+    imageElements.forEach((imageElement) => {
+      imageElement.style.width = "52px";
+      imageElement.style.height = "52px";
+      imageElement.style.padding = "";
+      imageElement.style.transform = "translate(0px, -18px)";
+    });
 
-    elements[3].style.marginLeft = "52px";
-    elements[3].style.transform = "translateY(-10px)";
+    thumbsElements.forEach((thumbsElement) => {
+      thumbsElement.style.marginLeft = "52px";
+      thumbsElement.style.transform = "translateY(-10px)";
+    });
   } else {
     const elements = document.querySelectorAll(
       ".thumbnail-image-wrapper.ytmusic-player-bar, .image.ytmusic-player-bar, .time-info.ytmusic-player-bar, .thumbs.ytmusic-player-bar"
@@ -191,13 +200,17 @@ function applyExpandStyles() {
       element.style.left = "";
     });
 
-    elements[2].style.width = "";
-    elements[2].style.height = "";
-    elements[2].style.padding = "";
-    elements[2].style.transform = "";
+    imageElements.forEach((imageElement) => {
+      imageElement.style.width = "";
+      imageElement.style.height = "";
+      imageElement.style.padding = "";
+      imageElement.style.transform = "";
+    });
 
-    elements[3].style.marginLeft = "";
-    elements[3].style.transform = "";
+    thumbsElements.forEach((thumbsElement) => {
+      thumbsElement.style.marginLeft = "";
+      thumbsElement.style.transform = "";
+    });
   }
 }
 
