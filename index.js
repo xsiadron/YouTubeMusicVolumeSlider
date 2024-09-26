@@ -101,6 +101,16 @@ function modifyLeftControls() {
     observer.observe(targetNode, { attributes: true, attributeFilter: ['style'] });
 }
 
+function modifyExpand() {
+    const expandVolumeSlider = document.getElementById("expand-volume-slider");
+    const expandingMenu = document.getElementById("expanding-menu");
+    const arrowIconButton = document.querySelector(".expand-button.style-scope.ytmusic-player-bar");
+
+    expandVolumeSlider.style.display= "none";
+    expandingMenu.style.top= "-10%";
+    arrowIconButton.style.setProperty('transform', 'rotate(180deg)', 'important');
+}
+
 function addEventListeners() {
     const playerBar = document.querySelector('.ytmusic-player-bar');
     if (playerBar) {
@@ -114,11 +124,13 @@ modifyVolumeSlider();
 addEventListeners();
 updateSliderTextValue();
 modifyLeftControls();
+modifyExpand();
 
 const observer = new MutationObserver((mutations, obs) => {
     addEventListeners();
     modifyVolumeSlider();
     modifyLeftControls();
+    modifyExpand();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
