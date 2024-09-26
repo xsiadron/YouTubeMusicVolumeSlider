@@ -85,6 +85,22 @@ function observeSlider() {
     }
 }
 
+function modifyLeftControls() {
+    const targetNode = document.getElementById("left-controls");
+
+    targetNode.style.width = "";
+
+    const observer = new MutationObserver(function(mutationsList) {
+        for (let mutation of mutationsList) {
+            if (mutation.attributeName === "style" && targetNode.style.width !== "") {
+                targetNode.style.width = "";
+            }
+        }
+    });
+
+    observer.observe(targetNode, { attributes: true, attributeFilter: ['style'] });
+}
+
 function addEventListeners() {
     const playerBar = document.querySelector('.ytmusic-player-bar');
     if (playerBar) {
@@ -97,10 +113,12 @@ function addEventListeners() {
 modifyVolumeSlider();
 addEventListeners();
 updateSliderTextValue();
+modifyLeftControls();
 
 const observer = new MutationObserver((mutations, obs) => {
     addEventListeners();
     modifyVolumeSlider();
+    modifyLeftControls();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
