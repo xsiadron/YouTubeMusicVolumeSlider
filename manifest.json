@@ -4,7 +4,6 @@
   "version": "1.0.1",
   "description": "Modifies the YouTube Music volume slider for easier volume changes.",
   "action": {
-    "default_popup": "index.html",
     "default_icon": {
       "16": "icon.png",
       "48": "icon.png",
